@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Reports - Kerala Veg Restaurant</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Kerala Veg Restaurant</h1>
+            <nav>
+                <a href="index.html" class="btn-secondary">Menu</a>
+                <a href="order-picking.html" class="btn-secondary">Orders</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="reportsSection" class="reports-section">
+            <h2>Sales Reports</h2>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Time Period:</label>
+                    <select id="timePeriodFilter">
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                </div>
+                <div class="filter-group" id="customDateRange" style="display: none;">
+                    <label>From:</label>
+                    <input type="date" id="dateFrom">
+                    <label>To:</label>
+                    <input type="date" id="dateTo">
+                </div>
+                <button id="applyFilterBtn" class="btn-primary">Apply Filter</button>
+            </div>
+
+            <div class="statistics">
+                <div class="stat-card">
+                    <h3>Total Sales</h3>
+                    <p class="stat-value">₹<span id="totalSales">0</span></p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <p class="stat-value"><span id="totalOrders">0</span></p>
+                </div>
+                <div class="stat-card">
+                    <h3>Average Order Value</h3>
+                    <p class="stat-value">₹<span id="avgOrderValue">0</span></p>
+                </div>
+            </div>
+
+            <div class="item-wise-sales">
+                <h3>Item-wise Sales</h3>
+                <table id="itemSalesTable">
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Quantity Sold</th>
+                            <th>Total Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemSalesBody">
+                        <!-- Item sales will be displayed here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="orders-list">
+                <h3>Orders</h3>
+                <table id="ordersTable">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date & Time</th>
+                            <th>Items</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersBody">
+                        <!-- Orders will be displayed here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+</html>
+

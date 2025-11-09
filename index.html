@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Veg Restaurant - Orders</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Kerala Veg Restaurant</h1>
+            <nav>
+                <button id="reportsBtn" class="btn-secondary">Sales Reports</button>
+                <a href="order-picking.html" class="btn-secondary">Orders</a>
+                <button id="editMenuBtn" class="btn-secondary">Edit Menu</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="itemCountInfo" class="item-count-info" style="display: none;">
+            <span>Orders: <strong id="currentItemCount">0</strong> / 1000</span>
+        </div>
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search orders by name or description...">
+                <button id="searchBtn" class="btn-search">🔍 Search</button>
+                <button id="clearSearchBtn" class="btn-clear" style="display: none;">Clear</button>
+            </div>
+        </div>
+        <div class="filter-section">
+            <button class="filter-btn active" data-category="all">All Orders</button>
+            <button class="filter-btn" data-category="foods">Foods</button>
+            <button class="filter-btn" data-category="snacks">Snacks</button>
+        </div>
+
+        <div id="menuGrid" class="menu-grid">
+            <!-- Menu items will be dynamically loaded here -->
+        </div>
+
+        <div id="noItems" class="no-items" style="display: none;">
+            <p>No orders found. Please add orders to the menu.</p>
+        </div>
+    </main>
+
+    <!-- Cart Overlay -->
+    <div id="cartOverlay" class="cart-overlay"></div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="closeCart" class="close-btn">&times;</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: ₹<span id="cartTotal">0</span></strong>
+            </div>
+            <button id="checkoutBtn" class="btn-primary" disabled>Proceed to Payment</button>
+        </div>
+    </div>
+
+    <!-- Cart Toggle Button -->
+    <button id="cartToggle" class="cart-toggle">
+        🛒 <span id="cartCount">0</span>
+    </button>
+
+
+    <!-- Add/Edit Order Modal -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle">Add Order</h2>
+            <form id="itemForm">
+                <input type="hidden" id="itemId">
+                <input type="text" id="itemName" placeholder="Order Name" required>
+                <textarea id="itemDescription" placeholder="Description"></textarea>
+                <input type="number" id="itemPrice" placeholder="Price (₹)" step="0.01" min="0" required>
+                <select id="itemCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="foods">Foods</option>
+                    <option value="snacks">Snacks</option>
+                </select>
+                <div class="image-upload-section">
+                    <label for="itemImageFile" class="upload-label">Upload Image (or enter URL below)</label>
+                    <input type="file" id="itemImageFile" accept="image/*" style="display: none;">
+                    <button type="button" id="uploadImageBtn" class="btn-secondary">Choose Image</button>
+                    <span id="imageFileName" class="image-file-name"></span>
+                    <div id="imagePreview" class="image-preview" style="display: none;">
+                        <img id="previewImg" src="" alt="Preview">
+                        <button type="button" id="removeImageBtn" class="remove-image-btn">Remove</button>
+                    </div>
+                </div>
+                <input type="url" id="itemImageUrl" placeholder="Or enter Image URL (optional)">
+                <div class="form-buttons">
+                    <button type="submit" class="btn-primary">Save Order</button>
+                    <button type="button" class="btn-secondary" id="cancelItemBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/items.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
+

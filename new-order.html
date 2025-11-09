@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Order - Kerala Veg Restaurant</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Kerala Veg Restaurant</h1>
+            <nav>
+                <a href="order-picking.html" class="btn-secondary">Back to Orders</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 style="text-align: center; margin-bottom: 20px;">Create New Order</h2>
+        
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search orders by name or description...">
+                <button id="searchBtn" class="btn-search">🔍 Search</button>
+                <button id="clearSearchBtn" class="btn-clear" style="display: none;">Clear</button>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <button class="filter-btn active" data-category="all">All Orders</button>
+            <button class="filter-btn" data-category="foods">Foods</button>
+            <button class="filter-btn" data-category="snacks">Snacks</button>
+        </div>
+
+        <div id="menuGrid" class="menu-grid">
+            <!-- Menu items will be dynamically loaded here -->
+        </div>
+
+        <div id="noItems" class="no-items" style="display: none;">
+            <p>No orders found. Please add orders to the menu.</p>
+        </div>
+    </main>
+
+    <!-- Cart Toggle Button -->
+    <button id="cartToggle" class="cart-toggle">
+        🛒 <span id="cartCount">0</span>
+    </button>
+
+    <!-- Cart Overlay -->
+    <div id="cartOverlay" class="cart-overlay"></div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Order Cart</h2>
+            <button id="closeCart" class="close-btn">&times;</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: ₹<span id="cartTotal">0</span></strong>
+            </div>
+            <button id="checkoutBtn" class="btn-primary" disabled>Place Order</button>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/items.js"></script>
+    <script src="js/new-order.js"></script>
+</body>
+</html>

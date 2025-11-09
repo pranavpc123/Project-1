@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Kerala Veg Restaurant</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Kerala Veg Restaurant</h1>
+            <nav>
+                <a href="index.html" class="btn-secondary">Menu</a>
+                <a href="order-picking.html" class="btn-secondary">Orders</a>
+                <a href="reports.html" class="btn-secondary">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="payment-container">
+            <h2>Order Summary</h2>
+            <div id="orderSummary" class="order-summary">
+                <!-- Order items will be displayed here -->
+            </div>
+            <div class="payment-amount">
+                <h3>Total Amount: ₹<span id="totalAmount">0</span></h3>
+            </div>
+
+            <div class="qr-section">
+                <h3>Scan to Pay via UPI</h3>
+                <div id="qrcode" class="qrcode-container"></div>
+                <p class="upi-info">UPI ID: <span id="upiId"></span></p>
+            </div>
+
+            <div class="payment-actions">
+                <button id="confirmPaymentBtn" class="btn-primary">Confirm Payment</button>
+                <a href="index.html" class="btn-secondary">Cancel</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>
+
